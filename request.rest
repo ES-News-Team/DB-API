@@ -2,6 +2,18 @@ POST http://localhost:5002/register HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Iai",
-    "lastname": "Capeta"
+    "name": "Guilherme",
+    "email": "guilherme@gmail.com",
+    "password": "1234teste"
 }
+
+###
+
+POST http://localhost:5002/login HTTP/1.1
+content-type: application/json
+
+{
+    "email": "guilherme@gmail.com",
+    "password": "1234teste"
+}
+
