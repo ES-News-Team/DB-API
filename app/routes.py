@@ -1,5 +1,6 @@
 from flask import request
 from models.users import *
+from models.news import *
 from app import db_api
 import bcrypt
 
@@ -34,4 +35,42 @@ def login():
     return f'Welcome {user.name}', 200
   else:
     return 'Wrong password', 403
+
+
+@db_api.route('/news/', methods=['POST'])
+def insertNews():
+  data = request.get_json()
+  addNews(data['title'], data['image'], data['content'])
+
   
+  return 'News created', 201
+
+@db_api.route('/news/', methods=['PUT'])
+def update():
+  data = request.get_json()
+  updateNews(data['id'], data['title'], data['image'], data['content'])
+
+  
+  return 'News updated', 200
+
+@db_api.route('/news/', methods=['DELETE'])
+def delete():
+  data = request.get_json()
+  deleteNews(data['id'])
+
+  
+  return 'News Deleted', 200
+
+@db_api.route('/news/', methods=['GET'])
+def read():
+  data = request.get_json()
+  response = readNews(data['id'])
+
+  obj = {
+    "id": response.uuid,
+    "title": response.title,
+    "image": response.image,
+    "content": response.content 
+  }
+  
+  return obj, 200
