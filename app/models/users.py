@@ -1,6 +1,6 @@
 import sqlalchemy
 from app.models.base import BASE, ENGINE
-from utils.generate_id import generateID
+from app.utils.generate_id import generateID
 
 class User(BASE):
    __tablename__ = 'users'

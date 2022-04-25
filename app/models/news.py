@@ -1,5 +1,5 @@
 import sqlalchemy
-from utils.generate_id import generateID
+from app.utils.generate_id import generateID
 from app.models.base import BASE, ENGINE
 
 class News(BASE):
