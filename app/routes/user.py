@@ -6,7 +6,7 @@ from app.controllers.user_controller import UserController
 USER = UserController()
 
 @db_api.route('/user', methods=['POST'])
-def create():
+def create_user():
     data = request.get_json()
     password = data['password'].encode('utf-8')
     hashed = bcrypt.hashpw(password, bcrypt.gensalt())

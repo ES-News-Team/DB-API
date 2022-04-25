@@ -5,7 +5,7 @@ from flask import request
 NEWS = NewsController()
 
 @db_api.route('/news/', methods=['POST'])
-def create():
+def create_news():
     data = request.get_json()
     NEWS.create(data['title'], data['image'], data['content'])
 
@@ -13,7 +13,7 @@ def create():
 
 
 @db_api.route('/news/', methods=['PUT'])
-def update():
+def update_news():
     data = request.get_json()
     NEWS.update(data['id'], data['title'], data['image'], data['content'])
     
@@ -21,7 +21,7 @@ def update():
 
 
 @db_api.route('/news/', methods=['DELETE'])
-def delete():
+def delete_news():
     data = request.get_json()
     NEWS.delete(data['id'])
   
@@ -29,7 +29,7 @@ def delete():
 
 
 @db_api.route('/news/', methods=['GET'])
-def retrieve():
+def retrieve_news():
     id = request.args.get('id', type = str)
     retrieved_news = NEWS.retrieve(id)
 
@@ -44,7 +44,7 @@ def retrieve():
 
 
 @db_api.route('/news/')
-def list():
+def list_news():
     list_of_news = NEWS.list()
     response = []
 
