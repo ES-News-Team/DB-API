@@ -10,7 +10,7 @@ class NewsController(IController):
 
     
     def retrieve(self, id: str):
-        stmt = select(News).where(News.uuid == id)
+        stmt = select(News).where(News.id == id)
         news = SESSION.scalars(stmt).one()
         return news
       
