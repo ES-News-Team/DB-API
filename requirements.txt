@@ -22,3 +22,6 @@ MarkupSafe==2.1.1
 pycparser==2.21
 six==1.16.0
 Werkzeug==2.1.1
+
+# mariadb
+mariadb==1.0.11
