@@ -13,9 +13,13 @@ services:
   
   mariadb:
     image: mariadb:latest
+    expose: 
+      - 3306
+    ports:
+      - 3306:3306
     environment:
       - MYSQL_ROOT_PASSWORD=1234567890
       - MYSQL_DATABASE=esnews
     volumes:
-      - ../mariadb:/var/lib/mysql
+      - ../mariadb_data:/var/lib/mysql
     
