@@ -1,9 +1,6 @@
 import sqlalchemy
-import uuid
-from app.models.base import BASE, ENGINE, SESSION
-
-def generateID():
-  return str(uuid.uuid4())
+from utils.generate_id import generateID
+from app.models.base import BASE, ENGINE
 
 class News(BASE):
    __tablename__ = 'news'
