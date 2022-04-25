@@ -1,11 +1,14 @@
 import sqlalchemy
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import select
+import uuid
 
 # Define the MariaDB engine using MariaDB Connector/Python
 engine = sqlalchemy.create_engine("mariadb+mariadbconnector://root:sysadm@127.0.0.1:3306/esnews")
 
 Base = declarative_base()
+
+
 
 class User(Base):
    __tablename__ = 'users'
@@ -21,6 +24,8 @@ Base.metadata.create_all(engine)
 Session = sqlalchemy.orm.sessionmaker()
 Session.configure(bind=engine)
 session = Session()
+
+
 
 def addUser(name, email, password):
 
