@@ -1,15 +1,15 @@
-
 services:
   db-api:
-    build:
-      context: ../docker
-      dockerfile: Dockerfile.db-api.dev
+    image: python
     container_name: db-api
     expose: 
       - 5002
     ports:
       - 5002:5002
-    command: python run.py
+    volumes:
+      - ../:/app
+    command: >
+      bash -c "pip install -r /app/requirements.txt && python /app/run.py"
   
   mariadb:
     image: mariadb:latest
@@ -17,5 +17,5 @@ services:
       - MYSQL_ROOT_PASSWORD=1234567890
       - MYSQL_DATABASE=esnews
     volumes:
-      - db-api-mariadb:/var/lib/mysql
+      - ../mariadb:/var/lib/mysql
     
