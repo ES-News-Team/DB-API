@@ -1,6 +1,6 @@
 import sqlalchemy
 import uuid
-from app.models.Base import BASE, ENGINE, SESSION
+from app.models.base import BASE, ENGINE, SESSION
 
 def generateID():
   return str(uuid.uuid4())

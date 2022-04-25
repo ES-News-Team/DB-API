@@ -1,4 +1,4 @@
-from app.models.Base import SESSION
+from app.models.base import SESSION
 from app.models.news import News
 from sqlalchemy import select
 from app.controllers.controller_interface import IController
