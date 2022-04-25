@@ -5,7 +5,7 @@ from sqlalchemy import select
 import uuid
 
 # Define the MariaDB engine using MariaDB Connector/Python
-engine = sqlalchemy.create_engine("mariadb+mariadbconnector://root:sysadm@127.0.0.1:3306/esnews")
+engine = sqlalchemy.create_engine("mariadb+mariadbconnector://root:1234567890@mariadb:3306/esnews")
 
 Base = declarative_base()
 
