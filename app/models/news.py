@@ -7,7 +7,7 @@ def generateID():
 
 class News(BASE):
    __tablename__ = 'news'
-   uuid = sqlalchemy.Column(sqlalchemy.String(length=36), name= "uuid", primary_key=True, default=generateID)
+   id = sqlalchemy.Column(sqlalchemy.String(length=36), name= "id", primary_key=True, default=generateID)
    title = sqlalchemy.Column(sqlalchemy.String(length=100))
    image = sqlalchemy.Column(sqlalchemy.String(length=300))
    content = sqlalchemy.Column(sqlalchemy.Text)
