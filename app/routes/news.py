@@ -1,4 +1,3 @@
-from urllib import response
 from app.controllers.news_controller import NewsController 
 from app import db_api
 from flask import request
@@ -58,4 +57,3 @@ def list():
         })
     
     return response, 200
-    
