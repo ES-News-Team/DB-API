@@ -1,0 +1,25 @@
+services:
+  db-api:
+    image: python
+    container_name: db-api
+    expose: 
+      - 5002
+    ports:
+      - 5002:5002
+    volumes:
+      - ../:/app
+    command: >
+      bash -c "pip install -r /app/requirements.txt && python /app/run.py"
+  
+  mariadb:
+    image: mariadb:latest
+    expose: 
+      - 3306
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234567890
+      - MYSQL_DATABASE=esnews
+    volumes:
+      - ../mariadb_data:/var/lib/mysql
+    
