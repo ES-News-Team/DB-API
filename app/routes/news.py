@@ -28,7 +28,7 @@ def delete_news():
     return 'News Deleted', 200
 
 
-@db_api.route('/news/', methods=['GET'])
+@db_api.route('/news/<uuid:id>', methods=['GET'])
 def retrieve_news():
     id = request.args.get('id', type = str)
     retrieved_news = NEWS.retrieve(id)
@@ -56,4 +56,9 @@ def list_news():
             "content": news.content 
         })
     
+    response = {
+        "news": response,
+        "length": len(response)
+    }
+
     return response, 200
