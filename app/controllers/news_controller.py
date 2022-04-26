@@ -6,7 +6,11 @@ from app.models.base import SESSION
 class NewsController(IController):
        
     def list(self):
-       return SESSION.query(News).all()
+        try:
+            result = SESSION.query(News).all()
+            return result
+        except:
+            SESSION.rollback()
 
     
     def retrieve(self, id: str):
@@ -17,18 +21,26 @@ class NewsController(IController):
 
     def create(self, title, image, content):  
         newNews = News(title=title, image=image, content=content)
-        SESSION.add(newNews)
-        SESSION.commit()
+        try: 
+            SESSION.add(newNews)
+            SESSION.commit()
+        except:
+            SESSION.rollback()
 
 
     def update(self, id, title, image, content):
-        news = SESSION.query(News).get(id)
-        news.title = title
-        news.image = image
-        news.content = content
-        SESSION.commit()
-
+        try:
+            news = SESSION.query(News).get(id)
+            news.title = title
+            news.image = image
+            news.content = content
+            SESSION.commit()
+        except:
+            SESSION.rollback()
 
     def delete(self, id):
-        SESSION.query(News).get(id).delete()
-        SESSION.commit()
+        try:
+            SESSION.query(News).get(id).delete()
+            SESSION.commit()
+        except:
+            SESSION.rollback()
