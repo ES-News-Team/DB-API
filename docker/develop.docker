@@ -5,7 +5,9 @@ WORKDIR /app
 COPY ./app /app/app
 COPY ./run.py /app
 
+RUN pip install --upgrade pip
+
 COPY ./requirements.txt /app
-RUN bash -c "pip install --upgrade pip && pip install -r ./requirements.txt"
+RUN pip install -r ./requirements.txt
 
 EXPOSE 5002
