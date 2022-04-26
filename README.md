@@ -72,11 +72,14 @@ Esses procedimentos devem ser feitos na raiz do projeto, e são exemplos em ambi
 
     # mariadb
     mariadb==1.0.11
+
+    # dependências do gunicorn
+    gunicorn==20.1.0
     ```
 
 # Desenvolvimento
 ```
-python run.py
+docker-compose -f db-api-service/develop.compose up --build
 ```
 
 # Produção
