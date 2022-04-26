@@ -21,7 +21,7 @@ class NewsController(IController):
         SESSION.commit()
 
 
-    def update(id, title, image, content):
+    def update(self, id, title, image, content):
         news = SESSION.query(News).get(id)
         news.title = title
         news.image = image
@@ -29,6 +29,6 @@ class NewsController(IController):
         SESSION.commit()
 
 
-    def delete(id):
+    def delete(self, id):
         SESSION.query(News).get(id).delete()
         SESSION.commit()
