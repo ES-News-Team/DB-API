@@ -84,5 +84,5 @@ docker-compose -f db-api-service/develop.compose up --build
 
 # Produção
 ```
-gunicorn --bind 0.0.0.0:5000 "run:consumer_ui_service" --worker-class=gthread --threads=4 -w 4
+docker-compose -f db-api-service/production.compose up --build
 ```
