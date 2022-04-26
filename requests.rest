@@ -1,4 +1,12 @@
-POST http://localhost:5002/register HTTP/1.1
+### ___________________________________________________________________________________
+@HOST=http://0.0.0.0:5002
+### ___________________________________________________________________________________
+
+
+
+
+### ===================================== U S E R =====================================
+POST {{HOST}}/register HTTP/1.1
 Content-Type: application/json
 
 {
@@ -9,7 +17,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:5002/login HTTP/1.1
+POST {{HOST}}/login HTTP/1.1
 Content-Type: application/json
 
 {
@@ -17,9 +25,9 @@ Content-Type: application/json
   "password": "test"
 }
 
-###
+### ===================================== N E W S =====================================
 
-POST http://localhost:5002/news/ HTTP/1.1
+POST {{HOST}}/news/ HTTP/1.1
 Content-Type: application/json
 
 {
@@ -30,11 +38,10 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:5002/news/ HTTP/1.1
+PUT {{HOST}}/news/26a495da-7703-41ff-ac59-6dbe724c4c1a HTTP/1.1
 Content-Type: application/json
 
 {
-  "id": "2871fda4-dff3-41d8-b9c1-49d83f3255ec",
   "title": "Teste",
   "image": "www.test.com",
   "content": "data content"
@@ -42,18 +49,11 @@ Content-Type: application/json
 
 ###
 
-DELETE  http://localhost:5002/news/ HTTP/1.1
-Content-Type: application/json
-
-{
-  "id": "2871fda4-dff3-41d8-b9c1-49d83f3255ec"
-}
+DELETE {{HOST}}/news/26a495da-7703-41ff-ac59-6dbe724c4c1a HTTP/1.1
 
 ###
 
-GET  http://localhost:5002/news/ HTTP/1.1
-Content-Type: application/json
+GET {{HOST}}/news/ HTTP/1.1
 
-{
-  "id": "faee7a8f-2b0d-4c00-a197-36188bb16390"
-}
+###
+GET {{HOST}}/news/26a495da-7703-41ff-ac59-6dbe724c4c1a HTTP/1.1
