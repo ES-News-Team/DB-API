@@ -57,11 +57,21 @@ Esses procedimentos devem ser feitos na raiz do projeto, e são exemplos em ambi
     greenlet==1.1.2
     SQLAlchemy==1.4.35
 
-    # Dependências do Bcrypt
+    # Dependências do Flask-Bcrypt
     bcrypt==3.2.0
     cffi==1.15.0
+    click==8.1.2
+    Flask==2.1.1
+    Flask-Bcrypt==1.0.1
+    itsdangerous==2.1.2
+    Jinja2==3.1.1
+    MarkupSafe==2.1.1
     pycparser==2.21
     six==1.16.0
+    Werkzeug==2.1.1
+
+    # mariadb
+    mariadb==1.0.11
     ```
 
 # Desenvolvimento
