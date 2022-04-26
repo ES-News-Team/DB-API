@@ -1,0 +1,59 @@
+### ___________________________________________________________________________________
+@HOST=http://0.0.0.0:5002
+### ___________________________________________________________________________________
+
+
+
+
+### ===================================== U S E R =====================================
+POST {{HOST}}/user HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Test",
+  "email": "joao@email.com",
+  "password": "test123"
+}
+
+###
+
+POST {{HOST}}/authenticate HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "guilherme@email.com",
+  "password": "test"
+}
+
+### ===================================== N E W S =====================================
+
+POST {{HOST}}/news/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Novo Iphone X",
+  "image": "www.google.com/image",
+  "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint vel illo, ipsum illum perspiciatis corporis? Repudiandae, expedita tenetur velit, eveniet repellendus et a ipsum officiis fugiat hic, nisi doloribus animi. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint vel illo, ipsum illum perspiciatis corporis? Repudiandae, expedita tenetur velit, eveniet repellendus et a ipsum officiis fugiat hic, nisi doloribus animi.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint vel illo, ipsum illum perspiciatis corporis? Repudiandae, expedita tenetur velit, eveniet repellendus et a ipsum officiis fugiat hic, nisi doloribus animi."
+}
+
+###
+
+PUT {{HOST}}/news/26a495da-7703-41ff-ac59-6dbe724c4c1a HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Teste",
+  "image": "www.test.com",
+  "content": "data content"
+}
+
+###
+
+DELETE {{HOST}}/news/26a495da-7703-41ff-ac59-6dbe724c4c1a HTTP/1.1
+
+###
+
+GET {{HOST}}/news/ HTTP/1.1
+
+###
+GET {{HOST}}/news/26a495da-7703-41ff-ac59-6dbe724c4c1a HTTP/1.1

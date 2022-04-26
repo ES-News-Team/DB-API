@@ -1,0 +1,26 @@
+services:  
+  mariadb:
+    image: mariadb:latest
+    expose: 
+      - 3306
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234567890
+      - MYSQL_DATABASE=esnews
+    volumes:
+      - /var/tmp/:/var/lib/mysql
+    
+  db-api:
+    build:
+      context: ../
+      dockerfile: docker/develop.docker
+    container_name: db-api
+    expose: 
+      - 5002
+    ports:
+      - 5002:5002
+    command: gunicorn --bind 0.0.0.0:5002 "run:db_api" --worker-class=gthread --threads=4 -w 4
+    depends_on:
+      mariadb:
+        condition: service_started
