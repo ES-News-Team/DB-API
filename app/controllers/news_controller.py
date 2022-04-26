@@ -2,11 +2,11 @@ from app.models.base import SESSION
 from app.models.news import News
 from sqlalchemy import select
 from app.controllers.controller_interface import IController
-
+from app.models.base import SESSION
 class NewsController(IController):
        
     def list(self):
-       return select(News).all()
+       return SESSION.query(News).all()
 
     
     def retrieve(self, id: str):
