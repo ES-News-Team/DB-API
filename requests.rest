@@ -6,7 +6,7 @@
 
 
 ### ===================================== U S E R =====================================
-POST {{HOST}}/register HTTP/1.1
+POST {{HOST}}/user HTTP/1.1
 Content-Type: application/json
 
 {
@@ -17,7 +17,7 @@ Content-Type: application/json
 
 ###
 
-POST {{HOST}}/login HTTP/1.1
+POST {{HOST}}/authenticate HTTP/1.1
 Content-Type: application/json
 
 {
