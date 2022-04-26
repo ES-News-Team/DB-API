@@ -14,6 +14,7 @@ services:
   db-api:
     build:
       context: ../
+      dockerfile: docker/develop.docker
     container_name: db-api
     expose: 
       - 5002

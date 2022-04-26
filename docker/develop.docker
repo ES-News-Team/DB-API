@@ -1,0 +1,11 @@
+FROM python
+
+RUN mkdir /app
+WORKDIR /app
+COPY ./app /app/app
+COPY ./run.py /app
+
+COPY ./requirements.txt /app
+RUN bash -c "pip install --upgrade pip && pip install -r ./requirements.txt"
+
+EXPOSE 5002
