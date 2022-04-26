@@ -8,11 +8,17 @@ class UserController(IUserController):
 
     def retrieve(self, email: str):
         stmt = select(User).where(User.email == email)
-        user = SESSION.scalars(stmt).one()
-        return user
+        try:
+            user = SESSION.scalars(stmt).one()
+            return user
+        except:
+            SESSION.rollback()
 
 
     def create(self, name: str, email: str, password: str):
         newUser = User(name=name, email=email, password=password)
-        SESSION.add(newUser)
-        SESSION.commit()
+        try:
+            SESSION.add(newUser)
+            SESSION.commit()
+        except:
+            SESSION.rollback()
