@@ -16,9 +16,12 @@ class UserController(IUserController):
 
 
     def create(self, name: str, email: str, password: str):
-        newUser = User(name=name, email=email, password=password)
-        try:
+        exists = SESSION.query(User.email).filter_by(email=email).first() 
+        if exists:
+            return 409
+        else:
+            newUser = User(name=name, email=email, password=password)
             SESSION.add(newUser)
             SESSION.commit()
-        except:
-            SESSION.rollback()
+            return newUser
+       
