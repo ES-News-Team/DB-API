@@ -1,6 +1,9 @@
 ### ___________________________________________________________________________________
-@HOST=http://0.0.0.0:5002
-### ___________________________________________________________________________________
+@HOST2=http://0.0.0.0:5002
+@HOST=http://127.0.0.1:5002
+
+### 
+___________________________________________________________________________________
 
 
 
@@ -10,9 +13,9 @@ POST {{HOST}}/user HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "Test",
-  "email": "joao@email.com",
-  "password": "test123"
+  "name": "gui",
+  "email": "guilherme",
+  "password": "123"
 }
 
 ###
@@ -21,8 +24,8 @@ POST {{HOST}}/authenticate HTTP/1.1
 Content-Type: application/json
 
 {
-  "email": "guilherme@email.com",
-  "password": "test"
+  "email": "guilherme",
+  "password": "123"
 }
 
 ### ===================================== N E W S =====================================
@@ -31,9 +34,9 @@ POST {{HOST}}/news/ HTTP/1.1
 Content-Type: application/json
 
 {
-  "title": "Novo Iphone X",
-  "type": "Pet",
-  "image": "www.google.com/image",
+  "title": "Noticia Sci 3",
+  "type": "Sci",
+  "image": "https://www.3ds.com/assets/invest/styles/profile/public/2022-04/glass-molecules-1.jpg?itok=IT0sRQrS",
   "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint vel illo, ipsum illum perspiciatis corporis? Repudiandae, expedita tenetur velit, eveniet repellendus et a ipsum officiis fugiat hic, nisi doloribus animi. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint vel illo, ipsum illum perspiciatis corporis? Repudiandae, expedita tenetur velit, eveniet repellendus et a ipsum officiis fugiat hic, nisi doloribus animi.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint vel illo, ipsum illum perspiciatis corporis? Repudiandae, expedita tenetur velit, eveniet repellendus et a ipsum officiis fugiat hic, nisi doloribus animi."
 }
 
@@ -59,3 +62,7 @@ GET {{HOST}}/news/ HTTP/1.1
 
 ###
 GET {{HOST}}/news/cfee252b-dcf0-4c46-a201-44605dfdb2ca HTTP/1.1
+
+
+###
+GET {{HOST}}/
