@@ -40,7 +40,8 @@ class NewsController(IController):
 
     def delete(self, id):
         try:
-            SESSION.query(News).get(id).delete()
+            news = SESSION.query(News).get(id)
+            SESSION.delete(news)
             SESSION.commit()
         except:
             SESSION.rollback()
