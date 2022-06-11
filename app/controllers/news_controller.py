@@ -19,8 +19,8 @@ class NewsController(IController):
         return news
       
 
-    def create(self, title, image, content):  
-        newNews = News(title=title, image=image, content=content)
+    def create(self, title, type, image, content):  
+        newNews = News(title=title, type=type, image=image, content=content)
         try: 
             SESSION.add(newNews)
             SESSION.commit()
@@ -28,10 +28,11 @@ class NewsController(IController):
             SESSION.rollback()
 
 
-    def update(self, id, title, image, content):
+    def update(self, id, title, type, image, content):
         try:
             news = SESSION.query(News).get(id)
             news.title = title
+            news.type = type
             news.image = image
             news.content = content
             SESSION.commit()

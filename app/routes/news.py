@@ -9,7 +9,7 @@ class NewsAPI(Resource):
 
     def post(self):
         data = request.get_json()
-        NEWS.create(data['title'], data['image'], data['content'])
+        NEWS.create(data['title'], data['type'], data['image'], data['content'])
 
         return 'News created', 201
 
@@ -17,7 +17,7 @@ class NewsAPI(Resource):
     def put(self, id):
         id = str(id)
         data = request.get_json()
-        NEWS.update(id, data['title'], data['image'], data['content'])
+        NEWS.update(id, data['title'], data['type'], data['image'], data['content'])
         
         return 'News updated', 200
 
@@ -38,6 +38,7 @@ class NewsAPI(Resource):
                 response.append({
                     "id": news.id,
                     "title": news.title,
+                    "type": news.type,
                     "image": news.image,
                     "content": news.content 
                 })
@@ -55,6 +56,7 @@ class NewsAPI(Resource):
         response = {
             "id": retrieved_news.id,
             "title": retrieved_news.title,
+            "type": retrieved_news.type,
             "image": retrieved_news.image,
             "content": retrieved_news.content 
         }
